@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Male Chibi Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0f172a;--panel:#111827;--ink:#e5e7eb;--muted:#9ca3af;--accent:#60a5fa;--btn:#1f2937}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;color:var(--ink);background:linear-gradient(180deg,#0b1220,#0f172a 60%);}
+  header{padding:28px 20px;text-align:center}
+  h1{margin:0;font-size:28px;letter-spacing:.4px}
+  main{max-width:980px;margin:0 auto;padding:0 16px 40px}
+  .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:860px){.grid{grid-template-columns:1.1fr .9fr}}
+  .card{background:var(--panel);border:1px solid #1f2937;border-radius:14px;padding:16px}
+  label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}
+  select,input,button{width:100%;padding:12px 12px;border-radius:10px;border:1px solid #273244;background:#0b1220;color:var(--ink);outline:none}
+  select:focus,input:focus{border-color:var(--accent)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .prompt{min-height:210px;padding:16px;background:#0b1220;border:1px dashed #2a3344;border-radius:12px;line-height:1.55;white-space:pre-wrap}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .btn{background:var(--btn);border:1px solid #2a3344;cursor:pointer}
+  .btn.primary{background:linear-gradient(90deg,#2563eb,#22d3ee);border:none;color:white;font-weight:700}
+  .notice{font-size:12px;color:var(--muted);margin-top:8px}
+  .pill{display:inline-block;padding:6px 10px;border:1px solid #2a3344;border-radius:999px;font-size:12px;color:#a5b4fc}
+  footer{max-width:980px;margin:0 auto;padding:12px 16px 40px;color:#94a3b8;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="pill">by YourBrand</div>
+  <h1>Male Chibi Generator</h1>
+  <p class="notice">Pick options → prompt updates live → copy to Ideogram/Midjourney/Kittl AI.</p>
+</header>
+
+<main class="grid">
+  <!-- Controls -->
+  <section class="card">
+    <div class="row">
+      <div>
+        <label for="style">Style</label>
+        <select id="style">
+          <option value="Chibi">Chibi</option>
+          <option value="Cartoon-realistic">Cartoon-realistic</option>
+          <option value="Anime super-cute">Anime super-cute</option>
+          <option value="Bratz-inspired">Bratz-inspired</option>
+        </select>
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <select id="age">
+          <option value="child">child</option>
+          <option value="teen">teen</option>
+          <option value="young adult" selected>young adult</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="skin">Skin tone</label>
+        <select id="skin">
+          <option>light</option>
+          <option>tan</option>
+          <option selected>brown</option>
+          <option>dark brown</option>
+          <option>reddish-brown</option>
+        </select>
+      </div>
+      <div>
+        <label for="hair">Hair</label>
+        <select id="hair">
+          <option>short fade</option>
+          <option selected>twists/locs</option>
+          <option>curly high-top</option>
+          <option>waves with part</option>
+          <option>braids</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="outfit">Outfit</label>
+        <select id="outfit">
+          <option>streetwear set</option>
+          <option selected>hoodie + cargos</option>
+          <option>school uniform</option>
+          <option>tracksuit</option>
+          <option>techwear</option>
+        </select>
+      </div>
+      <div>
+        <label for="shoes">Shoes</label>
+        <select id="shoes">
+          <option selected>LV trainers</option>
+          <option>Jordan 4</option>
+          <option>Air Force 1</option>
+          <option>Converse high-tops</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="pose">Pose</label>
+        <select id="pose">
+          <option selected>hands in pockets, mischievous smirk</option>
+          <option>peace sign, wink</option>
+          <option>cross-armed, confident</option>
+          <option>skateboard stance</option>
+        </select>
+      </div>
+      <div>
+        <label for="bg">Background</label>
+        <select id="bg">
+          <option selected>clear plain background</option>
+          <option>urban street dusk</option>
+          <option>school hallway</option>
+          <option>studio gradient</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="extras">Accessories</label>
+        <select id="extras">
+          <option selected>gold chain + watch</option>
+          <option>backpack</option>
+          <option>ear studs</option>
+          <option>none</option>
+        </select>
+      </div>
+      <div>
+        <label for="quality">Quality</label>
+        <select id="quality">
+          <option selected>ultra high detail, glossy shading, soft rim light</option>
+          <option>flat cel shading, bold lines</option>
+          <option>matte painterly</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="randomize">🎲 Randomize</button>
+      <button class="btn" id="clear">🧹 Clear</button>
+      <button class="btn primary" id="copy">📋 Copy Prompt</button>
+      <button class="btn" id="share">🔗 Share Link</button>
+    </div>
+    <p class="notice">Tip: tweak the template to match Ideogram/Midjourney flags (e.g., “--ar 2:3”).</p>
+  </section>
+
+  <!-- Prompt preview -->
+  <section class="card">
+    <label>Your Character Prompt</label>
+    <div id="prompt" class="prompt"></div>
+  </section>
+</main>
+
+<footer>
+  <div>© <span id="year"></span> YourBrand. Customize options in the HTML to match your style lists.</div>
+</footer>
+
+<script>
+  // 1) Template with placeholders
+  const PROMPT_TEMPLATE = ({style, age, skin, hair, outfit, shoes, pose, bg, extras, quality}) => 
+`${style} male chibi character, ${age}. ${skin} skin, ${hair}. Outfit: ${outfit} with ${shoes}, ${extras}. ${pose}.
+Clean ${bg}. ${quality}.
+Centered composition, crisp linework, vibrant but balanced colors, 300 DPI, print-ready PNG, no watermark, no text.`;
+
+  // 2) Collect all fields
+  const fields = ["style","age","skin","hair","outfit","shoes","pose","bg","extras","quality"];
+  const els = Object.fromEntries(fields.map(id => [id, document.getElementById(id)]));
+
+  // 3) Render prompt
+  const promptEl = document.getElementById("prompt");
+  function stateFromUI(){ return Object.fromEntries(fields.map(f => [f, els[f].value])); }
+  function render(){
+    const s = stateFromUI();
+    promptEl.textContent = PROMPT_TEMPLATE(s);
+    const params = new URLSearchParams();
+    fields.forEach(f => params.set(f, els[f].value));
+    history.replaceState(null, "", "?" + params.toString());
+  }
+
+  // 4) Hook up listeners
+  fields.forEach(f => els[f].addEventListener("change", render));
+
+  // 5) Copy
+  document.getElementById("copy").addEventListener("click", async () => {
+    const txt = promptEl.textContent.trim();
+    try { await navigator.clipboard.writeText(txt); alert("Prompt copied!"); }
+    catch { alert("Copy failed. Long-press and copy manually."); }
+  });
+
+  // 6) Clear
+  document.getElementById("clear").addEventListener("click", () => {
+    fields.forEach(f => els[f].selectedIndex = 0);
+    render();
+  });
+
+  // 7) Randomize
+  function randomizeSelect(el){ el.selectedIndex = Math.floor(Math.random()*el.options.length); }
+  document.getElementById("randomize").addEventListener("click", () => {
+    fields.forEach(f => randomizeSelect(els[f]));
+    render();
+  });
+
+  // 8) Share URL
+  document.getElementById("share").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      alert("Sharable link copied!");
+    } catch { alert("Copy failed. Copy URL from the address bar."); }
+  });
+
+  // 9) Load from URL params (deep linking)
+  function loadFromParams(){
+    const params = new URLSearchParams(location.search);
+    fields.forEach(f => {
+      if(params.has(f)){
+        [...els[f].options].forEach((o,i) => { if(o.value===params.get(f)) els[f].selectedIndex=i; });
+      }
+    });
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // init
+  loadFromParams();
+  render();
+</script>
+</body>
+</html>
